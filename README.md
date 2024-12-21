@@ -2,7 +2,7 @@
 ##  Problem Statement
 Allowing junk values in a table is one of the worst practices in any database, as it can cause a butterfly effect, impacting areas we did not expect. In my case, this was observed with SAP custom tables. For example, the column BUKRS, which refers to the standard T001 table with a standard data element, domain, and check table, can still accept incorrect values. If an invalid value is entered and directly used in an open SQL query, it will not be restricted. While restricting such values is not difficult—since we just need to check before updating—the issue arises when the table has multiple columns. We would have to check each column for every row, which becomes time-consuming. Due to tight timelines, we often overlook this small but crucial detail.
 
-The thing is, we can't manually develop a solution for each case, especially when dealing with a large number of tables and columns. That's why I thought of developing a dynamic solution that could handle this efficiently. The solution is simple: specify which column needs to be compared with which standard table column, and if the value doesn't match, throw an error. The only thing that changes is the table name and column name. To address this, I developed a solution using dynamic programming and RTTs. Please visit the GitHub repository below for more information and a sample implementation.
+The thing is, we can't manually develop a solution for each case, especially when dealing with a large number of tables and columns. That's why I thought of developing a dynamic solution that could handle this efficiently. The solution is simple: specify which column needs to be compared with which standard table column, and if the value doesn't match, throw an error. The only thing that changes is the table name and column name. To address this, I developed a solution using dynamic programming and RTTs.
 
 **Note: This solution is particularly useful for validating master data that changes infrequently, such as company codes, currencies, customers, etc. Many of these tables are fully or partially buffered, so performance won't be significantly impacted when using OPEN SQL. However, it is not recommended for comparing transactional data. A good example would be comparing the BELNR field in the BSEG table**
 
@@ -14,7 +14,7 @@ This solution addresses the challenge of validating internal or work area data b
 2. It will not validate internal tables and work areas. It validates deep structures (e.g., internal table inside an internal table, work area inside an internal table, internal table inside a work area, work area inside a work area, etc.).
 3. Do the conversion exit and give unconverted value for storing
    
-## Installation Instructions
+## Instructions
 1. Create the class in SE24.
 2. Call it with the necessary format. That's it.
 
