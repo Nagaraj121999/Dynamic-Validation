@@ -27,6 +27,7 @@ This solution addresses the challenge of validating internal or work area data b
 2. Call the `validate` method with the required internal table or work area.
 ![Internal Table Called](Images/1000051716.png)
 3. You will receive the output. The `Err_Message` attribute will indicate any invalid values, and the `Converted_Out` attribute will list any unconverted values.
+   
 ![Error Message](Images/1000051717.png)
 ![Unconverted Values](Images/1000051728.png)
 
