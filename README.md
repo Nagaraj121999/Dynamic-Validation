@@ -1,6 +1,6 @@
 # Input Validation Solution Using Dynamic Programming in ABAP
 
-## Project Description
+## Solution Description
 This solution addresses the challenge of validating internal or work area data before storing it into a database table. Not all fields are free input, and the traditional method of validation involves fetching check values from the database and comparing them row by row for each column. While simple, this approach can be very time-consuming for consultants. What if we could automate this process by simply specifying, "compare this field with this table and tell me if it contains an invalid value"? This is the goal of this solution.
 
 ## Features
