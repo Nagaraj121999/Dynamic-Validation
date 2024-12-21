@@ -24,11 +24,16 @@ This solution addresses the challenge of validating internal or work area data b
 ## Usage
 1. Create a value table as shown in the image. The "Field Name" refers to the field name in the internal table or work area you are passing. The "Table Name" is the check table, and the "Table Field Name" is the field to be checked in the check table. The "Data Element Name" refers to the data element, while the "Msg Field Name" is for message purposes only and will not affect the functionality. The "Conv Exit Name" is optional and should be provided if applicable.
 ![Value Table](Images/1000051715.png)
-2. Call the `validate` method with the required internal table or work area.  
-3. You will receive the output. The `Err_Message` attribute will indicate any invalid values, and the `Converted_Out` attribute will list any unconverted values.  
+2. Call the `validate` method with the required internal table or work area.
+![Internal Table Called](Images/1000051716.png)
+3. You will receive the output. The `Err_Message` attribute will indicate any invalid values, and the `Converted_Out` attribute will list any unconverted values.
+![Error Message](Images/1000051717.png)
+![Unconverted Values](Images/1000051728.png)
 
-For documentation purposes, I have attached different output screenshots for each step, so don't be confused by them.
+I have also attached a sample calling code in the CALL.ABAP file. Please refer to that for guidance.
+Note: For documentation purposes, I have attached different output screenshots for each step, so don't be confused by them.
 
 ## Contribution
 - The solution does not support validation when multiple primary keys are involved. For example, house bank and account ID cannot be validated together; they will be validated independently.
 - It does not specify which records contain incorrect values. The results are returned in a static manner.
+  These are the points I haven't covered yet, and any contributions towards them would be greatly appreciated
