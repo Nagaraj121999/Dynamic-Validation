@@ -4,6 +4,8 @@ Allowing junk values in a table is one of the worst practices in any database, a
 
 The thing is, we can't manually develop a solution for each case, especially when dealing with a large number of tables and columns. That's why I thought of developing a dynamic solution that could handle this efficiently. The solution is simple: specify which column needs to be compared with which standard table column, and if the value doesn't match, throw an error. The only thing that changes is the table name and column name. To address this, I developed a solution using dynamic programming and RTTs. Please visit the GitHub repository below for more information and a sample implementation.
 
+**Note: This solution is particularly useful for validating master data that changes infrequently, such as company codes, currencies, customers, etc. Many of these tables are fully or partially buffered, so performance won't be significantly impacted when using OPEN SQL. However, it is not recommended for comparing transactional data. A good example would be comparing the BELNR field in the BSEG table**
+
 ## Solution Description
 This solution addresses the challenge of validating internal or work area data before storing it into a database table. Not all fields are free input, and the traditional method of validation involves fetching check values from the database and comparing them row by row for each column. While simple, this approach can be very time-consuming for consultants. What if we could automate this process by simply specifying, "compare this field with this table and tell me if it contains an invalid value"? This is the goal of this solution.
 
